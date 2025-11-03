@@ -1,5 +1,4 @@
 import { ExternalLink, TrendingUp } from "lucide-react";
-import { Button } from "./ui/button";
 
 const Projects = () => {
   const projects = [
@@ -14,6 +13,7 @@ const Projects = () => {
         "Secured employer-only job application visibility with RBAC, improving data privacy compliance by 100%",
       ],
       gradient: "from-blue-500 to-cyan-500",
+      link: "https://github.com/arish404/JobPlatform",
     },
     {
       title: "Shopping Mall Management System",
@@ -26,6 +26,7 @@ const Projects = () => {
         "Implemented scalable architecture for multi-tenant support",
       ],
       gradient: "from-cyan-500 to-teal-500",
+      link: "https://github.com/arish404/EcommerceSite",
     },
     {
       title: "Chat with PDF – Nirma University Hackathon",
@@ -38,6 +39,7 @@ const Projects = () => {
         "Enabled real-time interaction with documents through natural language",
       ],
       gradient: "from-teal-500 to-emerald-500",
+      link: "https://github.com/arish404/chat_with_pdf",
     },
     {
       title: "CGPA Tracker – Mini Project",
@@ -50,6 +52,7 @@ const Projects = () => {
         "Implemented intuitive data visualization for academic performance tracking",
       ],
       gradient: "from-emerald-500 to-green-500",
+      link: "https://github.com/arish404/cgpa_calculator",
     },
   ];
 
@@ -67,9 +70,12 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div
+            <a
               key={index}
-              className="glass-card rounded-2xl overflow-hidden hover-lift animate-scale-in"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card rounded-2xl overflow-hidden hover-lift animate-scale-in block cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`} />
@@ -104,7 +110,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

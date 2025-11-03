@@ -1,23 +1,6 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { useState } from "react";
-import { toast } from "sonner";
+import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   const contactInfo = [
     {
       icon: Mail,
@@ -46,12 +29,12 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/arishkumar404",
+      href: "https://github.com/arish404",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/arishkumar",
+      href: "https://www.linkedin.com/in/arishkumar-s-7533b4244/",
     },
   ];
 
@@ -67,9 +50,8 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Contact Information */}
-          <div className="space-y-6 animate-slide-in-left">
+        <div className="flex justify-center">
+          <div className="w-full max-w-2xl space-y-6 animate-slide-in-left">
             <div className="glass-card p-8 rounded-2xl">
               <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
               <div className="space-y-4">
@@ -79,7 +61,7 @@ const Contact = () => {
                     <div className="flex items-center gap-4 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-all cursor-pointer">
                       <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0`}>
                         <Icon className="text-white" size={24} />
-                      </div>
+                      </div>  
                       <div>
                         <p className="text-sm text-muted-foreground">{info.label}</p>
                         <p className="font-medium">{info.value}</p>
@@ -117,68 +99,6 @@ const Contact = () => {
                   })}
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="animate-slide-in-right">
-            <div className="glass-card p-8 rounded-2xl">
-              <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="bg-muted/30 border-border/50"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Your Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="bg-muted/30 border-border/50"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell me about your project or opportunity..."
-                    rows={6}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    className="bg-muted/30 border-border/50 resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  <Send size={20} className="mr-2" />
-                  Send Message
-                </Button>
-              </form>
             </div>
           </div>
         </div>
