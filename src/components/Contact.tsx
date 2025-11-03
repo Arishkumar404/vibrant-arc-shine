@@ -58,7 +58,7 @@ const Contact = () => {
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   const content = (
-                    <div className="flex items-center gap-4 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-all cursor-pointer">
+                    <div className="flex items-center gap-5 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-all cursor-pointer">
                       <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0`}>
                         <Icon className="text-white" size={24} />
                       </div>  
